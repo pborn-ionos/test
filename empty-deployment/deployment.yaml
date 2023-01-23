@@ -1,20 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: v1
+kind: ServiceAccount
 metadata:
-  name: busybox
-spec:
-  selector:
-    matchLabels:
-      app: busybox
-  replicas: 0
-  template:
-    metadata:
-      labels:
-        app: busybox
-      spec:
-    spec:
-      containers:
-      - name: busybox
-        image: busybox:latest
-        imagePullPolicy: Always
-        command: ["/bin/sleep", "0"]
+  name: {{ .Release.Name }}
